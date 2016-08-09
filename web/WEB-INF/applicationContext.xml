@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr" 
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-4.3.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	    http://www.directwebremoting.org/schema/spring-dwr    
+        http://www.directwebremoting.org/schema/spring-dwr-3.0.xsd
+	">
+
+	<!-- 自动扫描机制 -->
+	<context:component-scan base-package="server"/>
+	<!-- aop -->
+	<aop:aspectj-autoproxy />
+	
+	<!-- 通过注解，把URL映射到Controller上，该标签默认注册DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter -->
+	<mvc:annotation-driven />
+	<!-- 静态文件处理 -->
+	<mvc:default-servlet-handler/>
+
+
+	<!-- 该 BeanPostProcessor 将自动起作用，对标注 @Autowired 的 Bean 进行自动注入 -->
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+
+ 	<!--&lt;!&ndash; dwr的配置 &ndash;&gt;-->
+	<!--<dwr:configuration>  -->
+	    <!--<dwr:convert type="bean" class="game.manager.vo.*"></dwr:convert>  -->
+	<!--</dwr:configuration>    -->
+	<!--&lt;!&ndash; 要求dwr在spring容器中检查拥有@RemoteProxy 和 @RemoteMethod注解的类。注意它不会去检查Spring容器之外的类。 &ndash;&gt;-->
+	<!--<dwr:annotation-config id="dwr" />-->
+	<!--<dwr:annotation-scan base-package="game" scanDataTransferObject="true" scanRemoteProxy="true"/>   -->
+	<!--&lt;!&ndash; 要求DWR将util.js和engine.js映射到dwrController &ndash;&gt;-->
+	<!--<dwr:url-mapping />-->
+	<!--&lt;!&ndash; 定义dwrController &ndash;&gt;-->
+	<!--<dwr:controller id="dwrController" debug="true">-->
+		<!--<dwr:config-param name="allowScriptTagRemoting"-->
+			<!--value="true" />-->
+		<!--<dwr:config-param name="crossDomainSessionSecurity"-->
+			<!--value="false" />-->
+	<!--</dwr:controller>-->
+	
+	<!--<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">  -->
+	    <!--<property name="order" value="3" />   -->
+	    <!--<property value="true" name="alwaysUseFullPath"></property>  -->
+	    <!--<property name="mappings">  -->
+	        <!--<props>  -->
+	          <!--<prop key="/dwr/**">dwrController</prop>  -->
+	        <!--</props>  -->
+	    <!--</property>  -->
+    <!--</bean> -->
+    
+
+
+
+
+
+    
+
+<!-- 引入数据源的配置文件 -->
+<!--<import resource="dataSource.xml"/>-->
+<!--<import resource="dataSource1.xml"/>-->
+<!--<import resource="springDispatcher.xml"/>-->
+	<import resource="spring-jpa.xml"/>
+</beans>
