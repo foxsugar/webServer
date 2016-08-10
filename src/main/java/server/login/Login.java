@@ -21,7 +21,7 @@ public class Login {
     public String hello(@RequestParam(value = "name", required = false, defaultValue = "default value")
             String name, Model model) {
         model.addAttribute("name", name);
-        System.out.println("00000000000000000");
+        System.out.println("00000000000000000 = "+ name);
         userService.test();
         return "index";
     }
