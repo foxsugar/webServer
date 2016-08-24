@@ -14,15 +14,33 @@
   <body>
 
   <div>
-    <button>向页面发送 HTTP GET 请求，然后获得返回的结果</button>
+
+    <form action="/webServer/hello" method="get">
+      名：
+      <input type="text" name="firstname" id="firstname">
+      <br />
+      姓：
+      <input type="text" name="lastname">
+      <input type="submit" value="送出">
+    </form>
+    <button id="button1">向页面发送 HTTP GET 请求，然后获得返回的结果</button>
+    <button id="button2">test</button>
   </div>
 
 
   <script>
+
     $(document).ready(function(){
-      $("button").click(function(){
-        $.get("/webServer/hello",function(data,status){
-          alert("数据：" + data + "\n状态：" + status);
+      $("#button1").click(function(){
+        var d = {};
+        d.name =  $("input[name='firstname']").val();
+        d.name = $("#firstname").val();
+        console.log(d);
+//        $("input[name='firstname']")
+//        $("[name='firstname']");
+        $.get("/webServer/hello",d,function(data,status){
+//          alert("数据：" + data + "\n状态：" + status);
+          console.log(data)
         });
       });
     });

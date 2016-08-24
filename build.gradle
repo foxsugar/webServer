@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.7
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -57,7 +57,9 @@ compile (
         'org.glassfish.web:jstl-impl: 1.2',
         'jstl:jstl:1.2',
         "taglibs:standard:1.1.2",
-        'javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.1'
+        'javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.1',
+
+        'com.google.protobuf:protobuf-java:3.0.0'
 
 
 
