@@ -13,4 +13,5 @@ public interface ICardDao extends Repository<Card,Long> {
     void save(Card card);
 
     List<Card> findByName(String name);
+
 }

@@ -3,7 +3,6 @@ package server.model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 /**
  * Created by SunXianping on 2016/8/9 0009.

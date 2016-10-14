@@ -5,10 +5,6 @@ import okhttp3.Cache;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.internal.Internal;
-import okhttp3.internal.InternalCache;
-import okhttp3.internal.http.CacheStrategy;
-import okhttp3.Headers;
 
 import java.io.File;
 import java.io.IOException;

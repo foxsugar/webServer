@@ -1,7 +1,11 @@
 package server.model;
 
 
+import server.entity.Role;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by SunXianping on 2016/8/8 0008.
@@ -12,12 +16,15 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//根据不同数据库自动选择合适的id生成方案，这里使用mysql,为递增型
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//根据不同数据库自动选择合适的id生成方案，这里使用mysql,为递增型
     private long id;
     private String name;
     private String passwd;
     private int level;
     private int gold;
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles", joinColumns = { @JoinColumn(name = "userid") }, inverseJoinColumns = { @JoinColumn(name = "roleid") })
+    private Set<Role> roles = new HashSet<Role>(0);
 
 
     public int getGold() {
@@ -62,6 +69,16 @@ public class User {
 
     public User setPasswd(String passwd) {
         this.passwd = passwd;
+        return this;
+    }
+
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public User setRoles(Set<Role> roles) {
+        this.roles = roles;
         return this;
     }
 }
