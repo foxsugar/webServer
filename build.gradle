@@ -7,6 +7,7 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+//    maven { url 'http://maven.oschina.net/content/groups/public/' }
 }
 
 
@@ -18,15 +19,15 @@ ext {
 
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-
 
     //log
     compile "org.slf4j:jcl-over-slf4j:1.7.7"
     compile "org.slf4j:slf4j-log4j12:1.7.7"
+    compile 'log4j:log4j:1.2.17'
     //log4j
     compile "org.apache.logging.log4j:log4j-api:2.6.2"
-    compile "org.apache.logging.log4j:'log4j-core:2.6.2"
+//    compile "org.apache.logging.log4j:log4j-core:2.6.2"
+
 
     //spring
     compile "org.springframework:spring-context:$springVersion"
@@ -45,7 +46,9 @@ dependencies {
     compile 'org.hibernate:hibernate-core:5.1.0.Final'
     compile 'org.hibernate:hibernate-validator:5.2.4.Final'
 
+    //数据库连接池
     compile "c3p0:c3p0:0.9.1.2"
+//    compile group: 'com.alibaba', name: 'druid', version: '1.0.18'
     //mysql
     compile "mysql:mysql-connector-java:5.1.26"
 
@@ -59,14 +62,25 @@ dependencies {
 
     //jstl
     compile 'javax.servlet:jstl:1.2'
-    compile 'org.glassfish.web:jstl-impl: 1.2'
-    compile 'jstl:jstl:1.2'
-    compile "taglibs:standard:1.1.2"
-    compile 'javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.1'
+//    compile 'org.glassfish.web:jstl-impl: 1.2'
+//    compile 'jstl:jstl:1.2'
+//    compile "taglibs:standard:1.1.2"
+//    compile 'javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.1'
 
     //protobuf3
     compile 'com.google.protobuf:protobuf-java:3.0.0'
 
+    //ehcache
+//    compile group: 'net.sf.ehcache', name: 'ehcache', version: '2.10.1'
+
+    //shiro
+    // https://mvnrepository.com/artifact/org.apache.shiro/shiro-core
+    compile group: 'org.apache.shiro', name: 'shiro-core', version: '1.3.0'
+    compile group: 'org.apache.shiro', name: 'shiro-web', version: '1.3.0'
+    compile group: 'org.apache.shiro', name: 'shiro-spring', version: '1.3.0'
+//    compile group: 'org.apache.shiro', name: 'shiro-ehcache', version: '1.3.0'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
 
 }
 
