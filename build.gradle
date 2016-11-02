@@ -26,7 +26,7 @@ dependencies {
     compile "org.slf4j:slf4j-log4j12:1.7.7"
     //log4j
     compile "org.apache.logging.log4j:log4j-api:2.6.2"
-    compile "org.apache.logging.log4j:'log4j-core:2.6.2"
+    compile "org.apache.logging.log4j:log4j-core:2.6.2"
 
     //spring
     compile "org.springframework:spring-context:$springVersion"
@@ -59,7 +59,7 @@ dependencies {
 
     //jstl
     compile 'javax.servlet:jstl:1.2'
-    compile 'org.glassfish.web:jstl-impl: 1.2'
+    compile 'org.glassfish.web:jstl-impl:1.2'
     compile 'jstl:jstl:1.2'
     compile "taglibs:standard:1.1.2"
     compile 'javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.1'
